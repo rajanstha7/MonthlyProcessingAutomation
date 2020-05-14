@@ -1,6 +1,6 @@
 # MonthlyProcessingAutomation
 Selenium-JAVA
-Author: Ra jan Shrestha
+Author: Rajan Shrestha
 @rajanstha7 
 Link: https://github.com/rajanstha7/MonthlyProcessingAutomation
 
