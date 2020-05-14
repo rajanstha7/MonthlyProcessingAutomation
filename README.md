@@ -1,4 +1,4 @@
-# MonthlyProcessingAutomation
+# MonthlyProcessingAutomation_Zakipoint
 Selenium-JAVA
 Author: Rajan Shrestha
 @rajanstha7 
@@ -32,7 +32,7 @@ Specifications Needed:
   All other necessary libraries are imported via dependencies that are kept in pom.xml you can simply copy the dependencies code and paste on your pom.xml and refresh sothat all your libraries gets installed
 
 ERRORS INFO:
-1) Some Errors might come after compalation is successfully done
+1) Some Errors might come after compilation is successfully done
     a) "Elements cannot be found" located by xpath, css -> This error usually occurs if the content is not displayed properly or there is lag in server to locate the element
         Elements are not loaded properly. You can use wait keyword sothat content are loaded properly.
     b) "Cannot be clickable at point(,)"-> This error occur usually if you try to fetch the data that are located beyond your desktop apperance means if you need to scroll down to locate tat element
