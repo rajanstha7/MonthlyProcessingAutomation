@@ -42,9 +42,9 @@ public class z5demoBdb {
 
         try {
             String driver = "com.mysql.cj.jdbc.Driver";
-            String urljdbc = "jdbc:mysql://172.31.16.204:3306/zph_z5demo_b";
-            String dbuserId = "rajan.shrestha";// type your database userID
-            String dbpassword = "***************";// type your remote database password
+            String urljdbc = "jdbc:mysql://#########:3306/zph_z5demo_b";
+            String dbuserId = "############";
+            String dbpassword = "#########";
             // DriverManager: The basic service for managing a set of JDBC drivers.
             Conn = DriverManager.getConnection(urljdbc, dbuserId, dbpassword);
             if (Conn != null) {

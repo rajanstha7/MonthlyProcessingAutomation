@@ -12,8 +12,8 @@ public class pharmacy {
     public static void main(String[] args) {
 
 
-      String username = "***************@zakipoint.com";// type your username
-      String password = "*****************";// type your password
+     String username = "#########@zakipoint.com";
+     String password = "##########";
        // String clientname = "Z5 Demo B";
         String clientname = "Asbury University";
         // String clientname = "Harlan Bakeries";
@@ -25,8 +25,8 @@ public class pharmacy {
 
 
         // System Property for Chrome Driver
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
-
+       // System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\java\\Intellij\\src\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         ChromeDriver driver = new ChromeDriver(options);

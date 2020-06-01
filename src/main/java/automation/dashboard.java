@@ -10,9 +10,10 @@ public class dashboard {
     public static void main (String[] args) {
 
 
-        String username = "***************@zakipoint.com";// type your username
-        String password = "*****************";// type your password
-        String clientname = "Z5 Demo B";
+        String username = "#########@zakipoint.com";
+        String password = "##########";
+       // String clientname = "Z5 Demo B";
+        String clientname = "Asbury University";
         //span[contains(text(),'Z5 Demo C')]
 
         String fullclientxpath = "//span[contains(text(),'" + clientname + "')]";
@@ -20,9 +21,8 @@ public class dashboard {
 
 
         // System Property for Chrome Driver
-        // Download chromedriver.exe and type the path below as mentioned:
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
-
+      //  System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\java\\Intellij\\src\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         ChromeDriver driver = new ChromeDriver(options);

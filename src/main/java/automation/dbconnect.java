@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import java.sql.*;
 
 import static org.junit.Assert.assertTrue;
-import static org.testng.Assert.assertTrue;
 
 //import org.testng.annotations.*;
 
@@ -22,7 +21,7 @@ public class dbconnect {
             try {
                 System.out.println("trying to connect db");
                 makeJDBCConnection();
-               // assertTrue(true);
+                assertTrue(true);
                 getmedicaldata();
 
 
@@ -47,9 +46,9 @@ public class dbconnect {
 
             try {
                 String driver = "com.mysql.cj.jdbc.Driver";
-                String urljdbc = "jdbc:mysql://172.31.16.204:3306/zph_appconfig";
-                String dbuserId = "rajan.shrestha";
-                String dbpassword = "B@Fu3TQVYn>jS}2f";
+                String urljdbc = "jdbc:mysql://########:3306/zph_appconfig";
+                String dbuserId = "############";
+                String dbpassword = "###########";
                 // DriverManager: The basic service for managing a set of JDBC drivers.
                 Conn = DriverManager.getConnection(urljdbc, dbuserId, dbpassword);
                 if (Conn != null) {
@@ -69,7 +68,7 @@ public class dbconnect {
                 return;
             }
             System.out.println(" @Test DB Connection Passed Succesfully"); //
-          //  assertTrue(true);
+            assertTrue(true);
 
         }
 
@@ -135,7 +134,7 @@ public class dbconnect {
         }
 
         System.out.println("Get data Successfully passed");
-     //   assertTrue(true);
+        assertTrue(true);
     }
     @Test
     private static void check() {
@@ -172,7 +171,7 @@ public class dbconnect {
             se.printStackTrace();
         }
         System.out.println("checked data successfully passed");
-     //   assertTrue(true);
+        assertTrue(true);
     }
 
     public static void getmedicaldata(){

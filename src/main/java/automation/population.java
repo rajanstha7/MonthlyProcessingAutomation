@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,10 +13,10 @@ public class population {
     public static void main (String[] args) {
 
 
-        String username = "***************@zakipoint.com";// type your username
-        String password = "*****************";// type your password
-        String clientname = "Z5 Demo B";
-        //String clientname = "Asbury University";
+        String username = "#########@zakipoint.com";
+        String password = "##########";
+       // String clientname = "Z5 Demo B";
+        String clientname = "Asbury University";
        // String clientname = "Harlan Bakeries";
 
         //span[contains(text(),'Z5 Demo C')]
@@ -24,8 +26,8 @@ public class population {
 
 
         // System Property for Chrome Driver
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
-
+       // System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\java\\Intellij\\src\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         ChromeDriver driver = new ChromeDriver(options);
@@ -61,7 +63,7 @@ public class population {
         //select population from quick links
         driver.findElement(By.xpath("//a[@class='dropdown-item'][contains(text(),'Population')]")).click();
 
-        /*------------------------------------------------------Remove
+
 
 
     //    driver.findElement(By.xpath("")).getText();
@@ -115,9 +117,7 @@ public class population {
 
         String   DrugSavingsAvailable =   driver.findElement(By.xpath("//span[contains(text(),'Savings Available')]//following-sibling::span[@class='number']")).getText();
         System.out.format("Savings Available:%s\n",  DrugSavingsAvailable);
-        //      driver.findElement(By.xpath("")).getText();
-        //      driver.findElement(By.xpath("")).getText();
-        //      driver.findElement(By.xpath("")).getText();
+
 
         System.out.println("*---------------ER UTILIZATION -----------------------*");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -143,15 +143,14 @@ public class population {
 
 
         // This  will scroll down the page by  1000 pixel vertical
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(0,300)");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //driver.findElement(By.linkText("Demographics")).click();
         //li[@class='nav-item']/a[@class='nav-link active' and contains(text(),'Demographics')]
        //driver.findElement(By.xpath("//li[@class='nav-item']/a[@class='nav-link active' and contains(text(),'Demographics')]")).click();
         driver.findElement(By.xpath("//a[@class='nav-link inactive'][contains(text(),'Demographics')]")).click();
 
-      //  driver.findElement(By.xpath("//a[@class='nav-link inactive'and contains(text(),'Demographics')]")).click();
-        // driver.findElement(By.cssSelector("div.aap-wrapper:nth-child(1) div.site.cd-main-content div.site-content.zph-cards section.disease-wrapper div.container div.disease-item.disease-tabs:nth-child(5) div.row div.col-12 ul.nav.nav-pills.tabs-wrapper li.nav-item:nth-child(2) > a.nav-link.inactive")).click();
+
         System.out.println("All Population : Age");
 
 
@@ -186,16 +185,6 @@ public class population {
         System.out.format("65+ Member Count=%s\n",SpendAgeEmember);
 
         System.out.println("*------------------------------GENDER---------------------------------------*");
-/*
-        String MaleSpend=driver.findElement(By.xpath("")).getText();
-        System.out.format("Male Spend=%s\n",MaleSpend);
-        String MaleMembers=driver.findElement(By.xpath("")).getText();
-        System.out.format("Male Members Count=%s\n",MaleMembers);
-
-
-  */
-
- /*-------------------------------------------------------------------------------Remove
 
 
         String MaleSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
@@ -215,67 +204,68 @@ public class population {
 
         System.out.println("*------------------------------Relationship---------------------------------------*");
 
-        String EmployeeRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
-        System.out.format("Employee Relationship Spend=%s\n",EmployeeRelSpend);
-        String EmployeeRelmember=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
-        System.out.format("Unknown Relationship Member=%s\n",EmployeeRelmember);
+        String RelationshipNameA=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
+        System.out.println(RelationshipNameA+"\n");
 
-        String SpouseRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
-        System.out.format("Spouse Relationship Spend=%s\n",SpouseRelSpend);
-        String SpouseRelMemberCount=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
-        System.out.format("Spouse Relationship Member Count=%s\n",SpouseRelMemberCount);
-
-        String DependentRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
-        System.out.format("Spouse Relationship Spend=%s\n",DependentRelSpend);
-        String DependentRelmemberCount=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
-        System.out.format("Dependent Relationship Member Count=%s\n",DependentRelmemberCount);
-
-        String OthersRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
-        System.out.format("Other Relationship Spend=%s\n",OthersRelSpend);
-        String OthersRelmember=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
-        System.out.format("Other Relationship Member Count=%s\n",OthersRelmember);
+        String UnknownRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameA+"Employee Relationship Spend=%s\n",UnknownRelSpend);
+        String UnknownRelmember=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameA+"Unknown Relationship Member=%s\n",UnknownRelmember);
 
 
-        //String SpendAgeAmember=driver.findElement(By.xpath("//div[@class='disease-box age-box']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
-        //System.out.format("0-19 Member Count=%s\n",SpendAgeAmember);
-
-           //      driver.findElement(By.xpath("")).getText();
-        //      driver.findElement(By.xpath("")).getText();
-
-
-
+        String RelationshipNameB=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
+        System.out.println(RelationshipNameB+"\n");
+        String EmployeeRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameB+"Spouse Relationship Spend=%s\n",EmployeeRelSpend);
+        String EmployeeRelMemberCount=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameB+"Spouse Relationship Member Count=%s\n",EmployeeRelMemberCount);
 
 
+        String RelationshipNameC=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
+        System.out.println(RelationshipNameC+"\n");
+        String SpouseRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameC+"Spouse Relationship Spend=%s\n",SpouseRelSpend);
+        String SpouseRelmemberCount=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameC+"Dependent Relationship Member Count=%s\n",SpouseRelmemberCount);
 
 
-     //      driver.findElement(By.xpath("")).getText();
+        String RelationshipNameD=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
+        System.out.println(RelationshipNameD+"\n");
+        String DependentRelSpend=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameD+"Other Relationship Spend=%s\n",DependentRelSpend);
+        String DependentRelmember=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='demographics']/div[@class='tab-pane active']/div[@class='row']/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format(RelationshipNameD+"Other Relationship Member Count=%s\n",DependentRelmember);
 
-
-  Remove   */
 
         System.out.println("*-------------------------Utilization---------------------------------*");
 
 
         // This  will scroll down the page by  500 pixel vertical
-         js.executeScript("window.scrollBy(0,500)");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // js.executeScript("window.scrollBy(0,500)");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//ul[@class='nav nav-pills tabs-wrapper']//a[@class='nav-link inactive'][contains(text(),'Utilization')]")).click();
 
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         System.out.println("*-------------------------All Conditions---------------------------------*");
         //a[contains(text(),'All Conditions')]
-       // js.executeScript("window.scrollBy(0,500)");
+      //  js.executeScript("window.scrollBy(0,300)");
        driver.findElement(By.xpath("//a[contains(text(),'All Conditions')]")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        /* 
+      //  js.executeScript("window.scrollBy(0,300)");
+
 
         System.out.println("*-----------------Claims By Procedure-----------------------*");
-        String TotalProcedureSpend=driver.findElement(By.xpath("//div[@id='z5poptbc001']//div[@class='bottom-placing']//div//span[@class='number'][contains(text(),'$23,095')]")).getText();
+        String TotalProcedurespend=driver.findElement(By.xpath("//div[@id='z5poptbc001']//div[@class='bottom-placing']//div//p[contains(text(),'Total Procedure Spend')]")).getText();
+        String wordpro = "Total Procedure Spend";
+        String TotalProcedureSpend = TotalProcedurespend.replace(wordpro, "");
         System.out.format("Total Procedure Spend:%s\n",TotalProcedureSpend);
 
         System.out.println("*---------------Claims By Procedure Utilization tab-------------------------*\n");
         driver.findElement(By.xpath("//div[@class='row tab-pane active panel-bottom']//div[1]//div[1]//ul[1]//li[2]//a[1]")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String TotalUtilizationperK=driver.findElement(By.xpath("//div[@id='z5poptbc002']//div[@class='bottom-placing']//div//span[@class='number'][contains(text(),'2,692')]")).getText();
+        String TotalutilizationperK=driver.findElement(By.xpath("//div[@id='z5poptbc002']//div[@class='bottom-placing']//div//p[contains(text(),'Total Utilization per 1000')]")).getText();
+        String wordperk = "Total Utilization per 1000";
+        String TotalUtilizationperK = TotalutilizationperK.replace(wordperk, "");
         System.out.format("Total Utilization per 1000: %s\n",TotalUtilizationperK);
 
         System.out.println("*-------------Catastrophic Claims------------------*\n");
@@ -306,19 +296,23 @@ public class population {
 
 
 
-  */
-        js.executeScript("window.scrollBy(0,800)");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//div[@id='collapseOne']//div[3]//div[1]//ul[1]//li[2]//a[1]")).click();
+
+       // js.executeScript("window.scrollBy(0,800)");
+       // driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+       // driver.findElement(By.xpath("//div[@id='collapseOne']//div[3]//div[1]//ul[1]//li[2]//a[1]")).click();
+       /*
         System.out.println("Service Spend"+":\n");
-        String ServiceInpatient=driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
-        System.out.println(ServiceInpatient+":\n");
+        js.executeScript("window.scrollBy(0,900)");
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+        //String ServiceInpatient=driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
+        //System.out.println(ServiceInpatient+":\n");
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         String ServiceInperK=driver.findElement(By.xpath("//body/div[@id='aap']/div[@id='body']/div[@id='page']/div[@id='content']/div[@id='app']/section[@class='disease-wrapper']/div[@class='container']/div[@class='disease-item disease-tabs']/div[@class='row']/div[@class='col-12']/div[@class='tab-content']/div[@id='Utilization']/div[@id='zp-accordion']/div[@class='panel']/div[@id='collapseOne']/div[@class='panel-body']/div[@class='row tab-pane active panel-bottom']/div[@class='col-6']/div[@class='disease-box zph-tabs']/div[@class='tab-content p-0']/div[2]/div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
         System.out.format("Inpatient Utilization Per 1000:\n",ServiceInperK);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-/*
+
         String ServiceInMembers=driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
         System.out.format("InpatientMembercount:%s\n",ServiceInMembers);
       //  String InpatientPMPM=driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
@@ -326,7 +320,7 @@ public class population {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         String ServiceOfficeVisit=driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][1]/*[name()='tspan'][1]")).getText();
-        System.out.println(ServiceOfficeVisit+":\n");
+        System.out.println(ServiceOfficeVisit+"\n");
          String ServiceOffperK= driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
         System.out.format("OfficeVisit Utilization Per 1000:%s",ServiceOffperK);
          String ServiceOffmembers =  driver.findElement(By.xpath("//div[@class='tab-pane active p-0']//div[@class='svg-data']//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
@@ -359,5 +353,13 @@ public class population {
         System.out.format("ER PMPM: %s\n",ERPMPM);
 
 */
+    //    driver.findElement(By.xpath("")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 25);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='collapsed'][contains(text(),'Pharmacy')]")));
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        js.executeScript("window.scrollBy(0,900)");
+        driver.findElement(By.xpath("//a[@class='collapsed'][contains(text(),'Pharmacy')]")).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       // driver.findElement(By.xpath("")).getText();
     }
     }

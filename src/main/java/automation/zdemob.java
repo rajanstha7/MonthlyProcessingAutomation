@@ -1,5 +1,4 @@
 package automation;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,8 +9,8 @@ public class zdemob {
     public static void main (String[] args) {
 
 
-        String username = "***************@zakipoint.com";// type your username
-        String password = "*****************";// type your password
+        String username = "#########@zakipoint.com";
+        String password = "##########";
         String clientname = "Z5 Demo B";
         //span[contains(text(),'Z5 Demo C')]
 

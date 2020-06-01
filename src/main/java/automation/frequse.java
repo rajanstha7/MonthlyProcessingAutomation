@@ -1,7 +1,53 @@
 package automation;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.concurrent.TimeUnit;
+
 public class frequse {
     public static void main(String[] args) {
+
+
+        String username = "#########@zakipoint.com";
+        String password = "##########";
+        String clientname = "Z5 Demo B";
+        //span[contains(text(),'Z5 Demo C')]
+
+        String fullclientxpath = "//span[contains(text(),'" + clientname + "')]";
+        System.out.println(fullclientxpath);
+
+
+        // System Property for Chrome Driver
+      //  System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\java\\Intellij\\src\\chromedriver.exe");
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        ChromeDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Launch Website
+        driver.navigate().to("https://ssouat.zakipointhealth.com/login/auth#!");
+        //maximize window
+        driver.manage().window().maximize();
+
+        //Enters username
+        driver.findElementByCssSelector("input#username").sendKeys(username);
+        //Enters password
+        driver.findElementByCssSelector("input[id='password']").sendKeys(password);
+        //Get Login
+        driver.findElementByXPath("//button[@class='btn btn-primary login-btn']").click();
+        //Set client
+        driver.findElementByCssSelector("button[class='btn dropdown-toggle btn-light']").click();
+        //Select desiredclient
+        driver.findElement(By.xpath(fullclientxpath)).click();
+        //Click to go
+        driver.findElementByXPath("//span[contains(text(),'Go')]").click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 /*
         System.out.println("For Dashboard Section");
@@ -232,5 +278,165 @@ public class frequse {
 
 
 */
+        /*
+
+        //*--------------------------------------Wellness----------------------------------- */
+
+
+        js.executeScript("window.scrollBy(0,200)");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//a[contains(text(),'Wellness')]")).click();
+
+
+        // ER  Risk SCORE
+
+
+        /* HIGH RISK */
+
+        System.out.println("*--------------------ER RISK SCORE---------------------------*\n");
+        System.out.println("*--------------------HIGH RISK---------------------------*\n");
+        js.executeScript("window.scrollBy(0,500)");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //  System.out.println("Prospective Population Risk Stratification\n" );
+        String HighERriskspend=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format("High Risk Spend:%s\n",HighERriskspend);
+
+        String HighERRiskMember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format("High Risk Member:%s\n",HighERRiskMember);
+
+        String Highpcmember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("High percentage change member: %s\n",Highpcmember);
+
+        /* Medium RISK */
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        System.out.println("*--------------------MEDIUM RISK---------------------------*\n");
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        String MediumERriskspend=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format("Medium Risk Spend:%s\n",MediumERriskspend);
+
+        String MediumERRiskMember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format("Medium Risk Member:%s\n",MediumERRiskMember);
+
+        String Mediumpcmember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Medium Percenage memeber: %s\n",Mediumpcmember);
+
+        /* Normal RISK */
+        System.out.println("*--------------------Normal RISK---------------------------*\n");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        String NormalERRiskspend=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format("Normal Risk Spend:%s\n",NormalERRiskspend);
+
+        String NormalERRiskMember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format("Normal Risk Member:%s\n",NormalERRiskMember);
+
+        String Normalpcmember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Normal Percentage memeber: %s\n",Normalpcmember);
+
+        /* LOW RISK */
+        System.out.println("*--------------------Low RISK---------------------------*\n");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        String LowERriskspend=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        System.out.format("Low Risk Spend:%s\n",LowERriskspend);
+
+        String LowERRiskMember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        System.out.format("Low Risk Member:%s\n",LowERRiskMember);
+
+        String Lowpcmember=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Low Percenage memeber: %s\n",Lowpcmember);
+
+
+
+
+        // For PMPM
+        driver.findElement(By.xpath("//div[@id='Wellness']//a[@class='nav-link inactive'][contains(text(),'Pmpm')]")).click();
+        // js.executeScript("window.scrollBy(0,500)");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //  System.out.println("Prospective Population Risk Stratification\n" );
+        // String HighERriskspendpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        //System.out.format("High Risk Spend:%s\n",HighERriskspendpmpm);
+
+        //String HighERRiskMemberpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        //System.out.format("High Risk Member:%s\n",HighERRiskMemberpmpm);
+
+        String HighERRiskPMPM=driver.findElement(By.xpath("//body//div[@class='tab-content']//div[@class='tab-content']//div[2]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][2]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("High Risk PMPM: %s\n",HighERRiskPMPM);
+
+        /* Medium RISK */
+
+        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // System.out.println("*--------------------MEDIUM RISK---------------------------*\n");
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        // String MediumERriskspendpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        //   System.out.format("Medium Risk Spend:%s\n",MediumERriskspendpmpm);
+
+        // String MediumERRiskMemberpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        // System.out.format("Medium Risk Member:%s\n",MediumERRiskMemberpmpm);
+
+        String MediumERRiskPMPM=driver.findElement(By.xpath("//body//div[@class='tab-content']//div[@class='tab-content']//div[2]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][3]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Medium Risk PMPM: %s\n",MediumERRiskPMPM);
+
+        /* Normal RISK */
+        System.out.println("*--------------------Normal RISK---------------------------*\n");
+        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        //  String NormalERriskspendpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        //   System.out.format("Normal Risk Spend:%s\n",NormalERriskspendpmpm);
+
+        //   String NormalERRiskMemberpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        //   System.out.format("Normal Risk Member:%s\n",NormalERRiskMemberpmpm);
+
+        String NormalERRiskpmpm=driver.findElement(By.xpath("//body//div[@class='tab-content']//div[@class='tab-content']//div[2]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][4]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Normal Risk PMPM: %s\n",NormalERRiskpmpm);
+
+        /* LOW RISK */
+        System.out.println("*--------------------Low RISK---------------------------*\n");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //System.out.println("Prospective Population Risk Stratification\n" );
+        //  String LowERriskspendpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][2]/*[name()='tspan'][1]")).getText();
+        //  System.out.format("Low Risk Spend:%s\n",LowERriskspendpmpm);
+
+        //   String LowERRiskMemberpmpm=driver.findElement(By.xpath("//div[@id='Wellness']//div[@class='tab-content']//div[1]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][3]/*[name()='tspan'][1]")).getText();
+        //  System.out.format("Low Risk Member:%s\n",LowERRiskMemberpmpm);
+
+        String LowERRiskPMPM=driver.findElement(By.xpath("//body//div[@class='tab-content']//div[@class='tab-content']//div[2]//div[1]//*[local-name()='svg']//*[name()='g' and contains(@class,'table row-')]//*[name()='g'][5]/*[name()='text'][1]/*[name()='tspan'][4]/*[name()='tspan'][1]")).getText();
+        System.out.format("Low Risk PMPM: %s\n",LowERRiskPMPM);
+
+
+
+
+
+
+        /*--------------------------------------Catestrophic Claims*/
+        System.out.println("*-------------Catastrophic Claims------------------*\n");
+        System.out.println("Medical Catestrophic\n");
+        String catestrophicmedInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.println(catestrophicmedInpatient);
+        String MedCatestrophicUtilizationInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("Med-Catestrophic-Utilization-Per-1000:%s\n",MedCatestrophicUtilizationInpatient);
+
+        String MedCatestrophicmemberInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("Medical-Catestrophic-member Count:%s\n",MedCatestrophicmemberInpatient);
+
+        String MedCatestrophicperchangeInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("MedCatestrophic percentage change :%s\n",MedCatestrophicperchangeInpatient);
+
+
+        System.out.println("Inpatient Catestrophic\n");
+        String catestrophicphrInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.println(catestrophicphrInpatient);
+        String PhrCatestrophicUtilizationInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("Inpatient-Catestrophic-Utilization-Per-1000:  %s\n",PhrCatestrophicUtilizationInpatient);
+
+        String PhrCatestrophicmemberInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("Inpatient-Catestrophic-member Count:%s\n",PhrCatestrophicmemberInpatient);
+
+        String PhrCatestrophicperchangeInpatient=driver.findElement(By.xpath("")).getText();
+        System.out.format("MedCatestrophic percentage change :%s\n",PhrCatestrophicperchangeInpatient);
+
+
+
     }
 }
